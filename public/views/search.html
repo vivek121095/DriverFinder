@@ -1,0 +1,28 @@
+<div id="homepage">
+  <h1>Find Best Drivers NearBy</h1>
+  <div id="drivers">
+    <div id="driver-container">
+      <form ng-submit="search(lat,lng)">
+        <label>Enter your latitude :</label>
+        <input type="text" id="lat" ng-model="lat" placeholder="latitude" required />
+        <label>Enter your longitude :</label>
+        <input type="text" id="lng" ng-model="lng" placeholder="longitude" required />
+        <input type="submit" value="Find Drivers" />
+      </form>
+      <ul>
+        <li>
+        <span class='name'>NAME</span>
+        <span class='rank'>EXPERIENCE</span>
+        <span class='dist'>DISTANCE</span>
+        </li>
+      </ul>
+      <ul id="driver-details">
+        <li ng-repeat="driver in drivers" ng-show="{{driver.obj.avail}}">
+        <span class='name' style='padding:0 20px !important;'>{{driver.obj.name}}</span>
+        <span class='rank'>{{driver.obj.exp}}</span>
+        <span class='dist'>{{Math.floor(driver.dis/1000)}} km</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
